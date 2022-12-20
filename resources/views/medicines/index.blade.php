@@ -51,12 +51,10 @@
 
                 <form action="{{ route('medicines.destroy',$pet->id) }}" method="POST">
 
-
-
                     <a class="btn btn-secondary" href="{{ route('medicine_detail.create', ['id' => $pet->id]) }}">Añadir</a>
 
                     <a class="btn btn-secondary" href="{{ route('medicine_detail.show', $pet->id) }}">Ver</a>
-
+                   
 
 
 

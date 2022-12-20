@@ -35,12 +35,9 @@
                 <input type="text" name="description" class="form-control" placeholder="Descripción">
             </div>
             <div class="form-group">
-                <strong>Fecha de expiración:</strong>
-                <input type="text" name="expiration_date" class="form-control" placeholder="Fecha de expiración">
+                <strong>Fecha de caducidad:</strong>
+                <input type="date" name="expiration_date" class="form-control" placeholder="Fecha de expiración">
             </div>
-           
-           
-
 
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

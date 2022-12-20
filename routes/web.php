@@ -37,8 +37,7 @@ Route::resource('/medicine_detail', 'MedicineDetailController');
 
 Route::resource('/attention', 'AttentionController');
 
-
-
+Route::resource('/diagnoses', 'DiagnosesController');
 
 Route::get('/shop', [CartController::class, 'shop'])->name('shop');
 Route::get('/cart', [CartController::class, 'cart'])->name('cart.index');

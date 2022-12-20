@@ -19,15 +19,16 @@
         <tr>
             <th>#</th>
             <th>Fecha</th>
-            <th>Descripción</th>
+            <th>Motivo de consulta</th>
             <th width="280px">Acciones</th>
-        
+            <th width="280px">Diagnosis</th>
+
         </tr>
         @foreach ($attention as $pet)
         <tr>
             <td>{{ ++$i }}</td>
             <td>{{ $pet-> date_attention}}</td>
-            <td>{{ $pet->description }}</td>
+            <td>{{ $pet-> description }}</td>
             <td>
 
                 <form action="{{ route('attention.destroy',$pet->id) }}" method="POST">
@@ -37,7 +38,7 @@
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <button type="submit" class="btn btn-danger">Cancelar</button>
 
                 </form>
 
@@ -45,7 +46,17 @@
 
             </td>
 
-            
+            <td>
+            <form action="{{ route('medicines.destroy',$pet->id) }}" method="POST">
+                @can('manage-medicines')
+                <a class="btn btn-secondary" href="{{ route('diagnoses.create', ['id' => $pet->id]) }}">Añadir</a>
+                @endcan
+
+                <a class="btn btn-secondary" href="{{ route('diagnoses.show', $pet->id) }}">Ver</a>
+
+            </form>
+            </td>
+
         </tr>
         @endforeach
     </table>

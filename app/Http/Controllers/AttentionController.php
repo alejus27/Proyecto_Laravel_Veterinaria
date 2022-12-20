@@ -9,6 +9,7 @@ use App\Veterinary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+
 class AttentionController extends Controller
 {
     /**
@@ -20,9 +21,19 @@ class AttentionController extends Controller
     {
         //
 
+        $user = Auth::user();
 
+        if($user->hasRole('user')){
 
-        $attention = Attention::latest()->paginate(5);
+            $attention = Attention::where('id_user', auth()->id())->latest()->paginate(5);
+
+        }else{
+            
+            $attention = Attention::latest()->paginate(5);
+
+        }
+
+        //$attention = Attention::latest()->paginate(5);
 
 
 
@@ -56,8 +67,8 @@ class AttentionController extends Controller
         $input = $request->all();
 
 
-        Attention::create($input);
-
+       Attention::create(array_merge($input, ['id_user' => Auth::user()->id]));
+       
 
         return redirect()->route('attention.index')->with('success', 'Attention created successfully.');
     }

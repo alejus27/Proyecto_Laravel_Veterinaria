@@ -7,6 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use Exception;
 
 class MedicineDetailController extends Controller
 {
@@ -58,14 +59,14 @@ class MedicineDetailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($memberID)
-    {   
-        //$medicine_detail= MedicineDetail::findOrFail($memberID);
-        //print($memberID);
-
+    {
         $medicine_detail = MedicineDetail::where('medicine_id', $memberID)->first();
 
-
-        return view('medicine_detail.show', compact('medicine_detail'));
+        if (empty($medicine_detail)) {
+            return redirect()->route('medicines.index')->with('success', 'No hay detalles.');
+        } else {
+            return view('medicine_detail.show', compact('medicine_detail'));
+        }
     }
 
     /**

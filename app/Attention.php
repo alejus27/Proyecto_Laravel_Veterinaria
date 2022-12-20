@@ -13,7 +13,8 @@ class Attention extends Model
         'date_attention',
         'description',
         'id_veterinary',
-        'id_pet'
+        'id_pet',
+        'id_user'
 
     ];
 

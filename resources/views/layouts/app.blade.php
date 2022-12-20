@@ -90,7 +90,7 @@
                                 </a>
                                 @endcan
 
-                                @can('access-cart')
+                                @can('manage-pets')
                                 <a class="dropdown-item" href="{{route('attention.index')}}">
                                     Atención
                                 </a>
@@ -117,7 +117,7 @@
         </div>
 
 
-        <div class="container">
+        <div class="container" style="margin-top: 50px">
             @include('partials.alerts')
             @yield('content')
         </div>

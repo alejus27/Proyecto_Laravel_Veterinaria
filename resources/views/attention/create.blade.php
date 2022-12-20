@@ -28,11 +28,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Fecha:</strong>
-                <input type="text" name="name" class="form-control" placeholder="Nombre">
+                <input type="date" name="date_attention" class="form-control" placeholder="Fecha">
             </div>
+
+
             <div class="form-group">
-                <strong>Descripción:</strong>
-                <input type="text" name="price" class="form-control" placeholder="Precio">
+                <strong>Motivo de solicitud:</strong>
+                <input type="text" name="description" class="form-control" placeholder="Descripción">
             </div>
 
             <div class="form-group">
@@ -56,9 +58,9 @@
 
             </div>
 
-            
 
-           
+
+
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
