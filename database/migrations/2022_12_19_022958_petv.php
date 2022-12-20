@@ -25,6 +25,10 @@ class Petv extends Migration
             $table->bigInteger('id_user')->unsigned();
             $table->foreign('id_user')->references('id')
                                     ->on('users');
+                                    
+            $table->bigInteger('id_vet')->unsigned();
+            $table->foreign('id_vet')->references('id')
+                                    ->on('veterinaries');
          });
 
     }

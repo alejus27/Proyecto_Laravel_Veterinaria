@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row" style="margin-top: 50px">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Añadir historia clinica</h2>
@@ -28,31 +28,31 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Motivo consulta:</strong>
-                <input type="text" name="reason_consultation" class="form-control" placeholder="Nombre">
+                <input type="text" name="reason_consultation" class="form-control" placeholder="Motivo consulta">
             </div>
             <div class="form-group">
                 <strong>Vacunación:</strong>
-                <input type="text" name="vaccination" class="form-control" placeholder="Sexo">
+                <input type="text" name="vaccination" class="form-control" placeholder="Estado vacunación">
             </div>
             <div class="form-group">
                 <strong>Esterilizado:</strong>
-                <input type="text" name="sterilized" class="form-control" placeholder="Edad">
+                <input type="text" name="sterilized" class="form-control" placeholder="Estado esterilizado">
             </div>
             <div class="form-group">
                 <strong>Peso:</strong>
-                <input type="text" name="weight" class="form-control" placeholder="Especie">
+                <input type="text" name="weight" class="form-control" placeholder="Peso">
             </div>
             <div class="form-group">
                 <strong>Pulso:</strong>
-                <input type="text" name="pulse" class="form-control" placeholder="Raza">
+                <input type="text" name="pulse" class="form-control" placeholder="Pulso">
             </div>
             <div class="form-group">
                 <strong>Desparasitación:</strong>
-                <input type="text" name="deworming" class="form-control" placeholder="Raza">
+                <input type="text" name="deworming" class="form-control" placeholder="Estadp desparacitación">
             </div>
             <div class="form-group">
                 <strong>Antecedentes:</strong>
-                <input type="text" name="antecedents" class="form-control" placeholder="Raza">
+                <input type="text" name="antecedents" class="form-control" placeholder="Antecedentes">
             </div>
 
 

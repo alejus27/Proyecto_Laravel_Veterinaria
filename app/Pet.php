@@ -18,7 +18,9 @@ class Pet extends Model
         'age',
         'specie',
         'breed',
-        'id_user'
+        'id_user',
+        'id_vet',
+        'image'
     ];
 
     //Relación 1 a n
@@ -30,6 +32,12 @@ class Pet extends Model
     public function ClinicalHistory()
     {
         return $this->hasOne(ClinicalHistory::class);
+    }
+
+    //Relación 1 a n
+    public function vet()
+    {
+        return $this->belongsTo(Veterinary::class);
     }
 
 

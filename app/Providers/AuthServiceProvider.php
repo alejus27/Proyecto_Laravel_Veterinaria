@@ -52,6 +52,15 @@ class AuthServiceProvider extends ServiceProvider
             return $user->hasAnyRoles(['veterinary']);  
         });
 
+        Gate::define('manage-medicines', function ($user) {
+            return $user->hasAnyRoles(['veterinary']);  
+        });
+
+        Gate::define('access-cart', function ($user) {
+            return $user->hasAnyRoles(['user']);  
+        });
+
+
 
         // Gate::define('edit-users', function($user){
         //         return $user->hasRole('admin');

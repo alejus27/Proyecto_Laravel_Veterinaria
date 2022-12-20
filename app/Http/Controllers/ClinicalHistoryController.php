@@ -17,11 +17,11 @@ class ClinicalHistoryController extends Controller
      */
     public function index()
     {
-        //$clinicalHistory = ClinicalHistory::latest()->paginate(5);
+        //$history = ClinicalHistory::latest()->paginate(5);
 
-        $clinicalHistory = ClinicalHistory::where('id_pet', request()->id)->latest()->paginate(5);
+        $history = ClinicalHistory::where('id_pet', request()->id)->latest()->paginate(5);
 
-        return view('history.index', compact('clinicalHistory'))->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('history.index', compact('history'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -46,58 +46,58 @@ class ClinicalHistoryController extends Controller
 
         ClinicalHistory::create(array_merge($request->all(), ['id_pet' => request()->id]));
 
-        return redirect()->route('history.index')->with('success', 'ClinicalHistory created successfully.');
+        return redirect()->route('pets.index')->with('success', 'ClinicalHistory created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\ClinicalHistory  $clinicalHistory
+     * @param  \App\ClinicalHistory  $history
      * @return \Illuminate\Http\Response
      */
-    public function show(ClinicalHistory $clinicalHistory)
+    public function show(ClinicalHistory $history)
     {
 
-        return view('history.show', compact('clinicalHistory'));
+        return view('history.show', compact('history'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\ClinicalHistory  $clinicalHistory
+     * @param  \App\ClinicalHistory  $history
      * @return \Illuminate\Http\Response
      */
-    public function edit(ClinicalHistory $clinicalHistory)
+    public function edit(ClinicalHistory $history)
     {
-        return view('history.edit', compact('clinicalHistory'));
+        return view('history.edit', compact('history'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\ClinicalHistory  $clinicalHistory
+     * @param  \App\ClinicalHistory  $history
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ClinicalHistory $clinicalHistory)
+    public function update(Request $request, ClinicalHistory $history)
     {
-        $clinicalHistory->update($request->all());
+        $history->update($request->all());
 
-        return redirect()->route('history.index')
+        return redirect()->route('pets.index')
             ->with('success', 'ClinicalHistory updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\ClinicalHistory  $clinicalHistory
+     * @param  \App\ClinicalHistory  $history
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ClinicalHistory $clinicalHistory)
+    public function destroy(ClinicalHistory $history)
     {
-        $clinicalHistory->delete();
+        $history->delete();
 
-        return redirect()->route('history.index')
+        return redirect()->route('pets.index')
             ->with('success', 'ClinicalHistory deleted successfully');
     }
 }

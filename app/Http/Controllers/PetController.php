@@ -6,6 +6,7 @@ use App\Pet;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Veterinary;
 
 class PetController extends Controller
 {
@@ -39,8 +40,10 @@ class PetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('pets.create');
+    {   
+        $vets = Veterinary::latest()->paginate(5);
+        
+        return view('pets.create', compact('vets'));
     }
 
     /**
@@ -53,7 +56,21 @@ class PetController extends Controller
     {
         //Pet::create($request->all());
 
-        Pet::create(array_merge($request->all(), ['id_user' => auth()->id]));
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }
+    
+
+        Pet::create(array_merge($input, ['id_user' => Auth::user()->id]));
 
         return redirect()->route('pets.index')->with('success', 'Pet created successfully.');
     }

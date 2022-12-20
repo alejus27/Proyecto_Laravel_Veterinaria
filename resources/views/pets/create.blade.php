@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="row">
+<div class="row" style="margin-top: 50px">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Añadir nueva mascota</h2>
@@ -21,7 +21,7 @@
 </div>
 @endif
 
-<form action="{{ route('pets.store') }}" method="POST">
+<form action="{{ route('pets.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <div class="row">
@@ -42,10 +42,28 @@
                 <strong>Especie:</strong>
                 <input type="text" name="specie" class="form-control" placeholder="Especie">
             </div>
+
             <div class="form-group">
                 <strong>Raza:</strong>
                 <input type="text" name="breed" class="form-control" placeholder="Raza">
             </div>
+
+            <div class="form-group">
+                <strong>Imagen:</strong>
+                <input type="file" name="image" class="form-control" placeholder="image">
+            </div>
+
+
+            <div class="form-group">
+                <strong>Veterinaria:</strong>
+                <select name="id_vet">
+                    @foreach($vets as $category)
+                    <option value="{{$category->id}}">{{$category->name}}></option>
+                    @endforeach
+                </select>
+
+            </div>
+
 
 
         </div>

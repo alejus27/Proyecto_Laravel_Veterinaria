@@ -4,7 +4,7 @@
 
 
 
-<div class="row">
+<div class="row" style="margin-top: 50px">
     <div class="col-lg-12 margin-tb">
 
         <div class="pull-left">
@@ -41,16 +41,18 @@
             </div>
             <div class="form-group">
                 <strong>Edad:</strong>
-                <input type="text" name="age"  value="{{ $pet->age }}"class="form-control" placeholder="Edad">
+                <input type="text" name="age" value="{{ $pet->age }}" class="form-control" placeholder="Edad">
             </div>
             <div class="form-group">
                 <strong>Especie:</strong>
-                <input type="text" name="specie"  value="{{ $pet->specie }}"class="form-control" placeholder="Especie">
+                <input type="text" name="specie" value="{{ $pet->specie }}" class="form-control" placeholder="Especie">
             </div>
             <div class="form-group">
                 <strong>Raza:</strong>
-                <input type="text" name="breed"  value="{{ $pet->breed }}"class="form-control" placeholder="Raza">
+                <input type="text" name="breed" value="{{ $pet->breed }}" class="form-control" placeholder="Raza">
             </div>
+
+
 
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

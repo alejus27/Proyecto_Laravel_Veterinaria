@@ -1,41 +1,47 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
+<div class="row" style="margin-top: 50px">
     <div class="col-lg-12 margin-tb">
-       
+    @can('history-pets')
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('history.create' , ['id' => request()->id])}}"> Create New History</a>
+            <a class="btn btn-success" href="{{ route('history.create' , ['id' => request()->id])}}"> Registrar nueva historia clinica</a>
         </div>
-      
-        <div class="pull-left">
+        @endcan
+
+        <div class="text-center">
             <h2>Versiones Historias Clinicas</h2>
         </div>
 
     </div>
 </div>
-
-<table class="table table-bordered">
+<div class="card-body">
+<table class="table">
     <tr>
         <th>#</th>
         <th>Motivo</th>
-        <th width="280px">Action</th>
+        <th width="280px">Acción</th>
+     
+        
     </tr>
-    @foreach ($clinicalHistory as $clinicalHistor)
+    @foreach ($history as $ch)
     <tr>
         <td>{{ ++$i }}</td>
-        <td>{{ $clinicalHistor->reason_consultation }}</td>
+        <td>{{ $ch->reason_consultation }}</td>
         <td>
 
-            <form action="{{ route('history.destroy', $clinicalHistor->id) }}" method="POST">
+            <form action="{{ route('history.destroy', $ch->id) }}" method="POST">
 
-                <a class="btn btn-primary" href="{{ route('history.show', $clinicalHistor->id) }}">Show</a>
-                <a class="btn btn-warning" href="{{ route('history.edit', $clinicalHistor->id) }}">Edit</a>
+                <a class="btn btn-primary" href="{{ route('history.show', $ch->id) }}">Información</a>
+
+                @can('history-pets')
+                <a class="btn btn-dark" href="{{ route('history.edit', $ch->id) }}">Editar</a>
 
                 @csrf
                 @method('DELETE')
 
-                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                @endcan
               
             </form>
 
@@ -45,7 +51,7 @@
     </tr>
     @endforeach
 </table>
-
-{!! $clinicalHistory->links() !!}
+</div>
+{!! $history->links() !!}
 
 @endsection

@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
+<div class="row" style="margin-top: 50px">
     <div class="col-lg-12 margin-tb">
-       
+
         <div class="pull-left">
             <h2>Información mascota</h2>
         </div>
@@ -12,41 +12,48 @@
 </div>
 
 <div class="row">
+
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Name:</strong>
+            <img src="/image/{{ $pet->image }}" width="200px">
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Nombre:</strong>
             {{ $pet->name }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Sex:</strong>
+            <strong>Sexo:</strong>
             {{ $pet->sex}}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-          
-            <strong>Age:</strong>
+
+            <strong>Edad:</strong>
             {{ $pet->age}}
-           
+
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-           
-            <strong>Specie:</strong>
+
+            <strong>Especie:</strong>
             {{ $pet->specie}}
-         
+
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-           
-            <strong>Breed:</strong>
+
+            <strong>Raza:</strong>
             {{ $pet->breed}}
         </div>
     </div>
-   
+
 </div>
 @endsection

@@ -22,27 +22,27 @@ class UserTableSeeder extends Seeder
 
         //we need to get role out of database 
         $adminRole = Role::where('name', 'admin')->first(); //get first instance you find
-        $authorRole = Role::where('name', 'author')->first();
+        $authorRole = Role::where('name', 'veterinary')->first();
         $userRole = Role::where('name', 'user')->first();
 
         //now we have role information we start creating users
         $admin = User::create([
             'name'=>'Admin User',
             'email'=>'admin@gmail.com',
-            'password'=> Hash::make('mira2146')
+            'password'=> Hash::make('admin123')
             ]);
 
         $author = User::create([
              'name'=>'Veterinary User',
              'email'=>'vet@gmail.com',
-             'password'=> Hash::make('study123')
+             'password'=> Hash::make('vet123')
            ]);
         
         
         $user = User::create([
             'name'=>'Generic User',
             'email'=>'user@gmail.com',
-            'password'=> Hash::make('study2146')
+            'password'=> Hash::make('user123')
           ]);   
 
 

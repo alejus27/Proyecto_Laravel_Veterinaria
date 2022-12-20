@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center" style="margin-top: 50px">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Dashboard</div>
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    ¡Estás conectado!
                 </div>
             </div>
         </div>

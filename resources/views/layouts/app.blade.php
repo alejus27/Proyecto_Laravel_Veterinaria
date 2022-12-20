@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Histovet') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,12 +21,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light" >
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm" > 
+            <div class="container" >
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ 'Histovet' }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -34,20 +35,22 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
 
-                    </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        @can('access-cart')
+                        @include('partials.navbar')
+                        @endcan
+
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registro') }}</a>
                         </li>
                         @endif
                         @else
@@ -59,23 +62,41 @@
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Cerrar sesión') }}
                                 </a>
 
                                 @can('manage-users')
                                 <a class="dropdown-item" href="{{route('admin.users.index')}}">
-                                    User Management
+                                    Gestión de usuarios
                                 </a>
                                 @endcan
-                                
+
                                 @can('manage-pets')
                                 <a class="dropdown-item" href="{{route('pets.index')}}">
-                                    Pet Management
+                                    Gestión de mascotas
+                                </a>
+                                @endcan
+
+                                @can('manage-medicines')
+                                <a class="dropdown-item" href="{{route('medicines.index')}}">
+                                    Gestión de medicinas
                                 </a>
                                 @endcan
 
 
-                              
+                                @can('manage-users')
+                                <a class="dropdown-item" href="{{route('veterinary.index')}}">
+                                    Gestión de veterinarias
+                                </a>
+                                @endcan
+
+                                @can('access-cart')
+                                <a class="dropdown-item" href="{{route('attention.index')}}">
+                                    Atención
+                                </a>
+                                @endcan
+
+
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
@@ -85,15 +106,25 @@
                         @endguest
                     </ul>
                 </div>
+
+
+
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class="container">
-                @include('partials.alerts')
-                @yield('content')
-            </div>
-        </main>
+        <div class="container">
+
+        </div>
+
+
+        <div class="container">
+            @include('partials.alerts')
+            @yield('content')
+        </div>
+
+
+
+
     </div>
 </body>
 

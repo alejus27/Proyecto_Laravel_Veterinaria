@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Histovet</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -70,30 +70,23 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Iniciar sesión</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Registro</a>
                         @endif
                     @endauth
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    VETERINARIA
+            <div class="content" style="border-style:solid; border-radius:50%; width: 650px ;height: 650px;">
+                <div class="title"  style="margin-top: 180px">
+                    HISTOVET APP
                 </div>
-
-
-                <!-- <div class="links">
-                    <a href="">Mascotas</a>
-                    <a href="">Citas Médicas</a>
-                    <a href="">Medicamentos</a>
-                    
-                </div> -->
-
                 <img src="{{ asset('img/vet.png') }}" alt="tag" style="width:30%">
             </div>
+
+
         </div>
     </body>
 </html>
