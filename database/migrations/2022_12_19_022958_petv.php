@@ -24,11 +24,11 @@ class Petv extends Migration
 
             $table->bigInteger('id_user')->unsigned();
             $table->foreign('id_user')->references('id')
-                                    ->on('users');
+                                    ->on('users')->onDelete('cascade');
                                     
             $table->bigInteger('id_vet')->unsigned();
             $table->foreign('id_vet')->references('id')
-                                    ->on('veterinaries');
+                                    ->on('veterinaries')->onDelete('cascade');
          });
 
     }

@@ -26,7 +26,7 @@ class ClinicalHistory extends Migration
 
             $table->bigInteger('id_pet')->unsigned();
             $table->foreign('id_pet')->references('id')
-                                    ->on('pets');
+                                    ->on('pets')->onDelete('cascade');
 
          });
 
