@@ -95,8 +95,19 @@ class MedicineController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Medicine $medicine)
-    {
-        $medicine->update($request->all());
+    {    $input = $request->all();
+        
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+
+        $medicine->update($input);
 
         return redirect()->route('medicines.index')
             ->with('success', 'Medicine updated successfully');

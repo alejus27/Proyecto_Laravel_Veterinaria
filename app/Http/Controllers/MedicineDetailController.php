@@ -63,7 +63,8 @@ class MedicineDetailController extends Controller
         $medicine_detail = MedicineDetail::where('medicine_id', $memberID)->first();
 
         if (empty($medicine_detail)) {
-            return redirect()->route('medicines.index')->with('success', 'No hay detalles.');
+            return redirect()->back()->with('success', 'No hay detalles.');
+
         } else {
             return view('medicine_detail.show', compact('medicine_detail'));
         }

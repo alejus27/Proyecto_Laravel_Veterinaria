@@ -14,7 +14,7 @@
 <div class="row">
 <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <img src="/image/{{ $pet->image }}" width="200px">
+            <img src="/image/{{ $pet->image }}" style="border-radius: 20%;" width="200px">
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">

@@ -107,7 +107,21 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
-        $pet->update($request->all());
+        
+
+        $input = $request->all();
+        
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'image/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+
+        $pet->update($input);
 
         return redirect()->route('pets.index')
             ->with('success', 'Pet updated successfully');

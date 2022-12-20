@@ -55,7 +55,7 @@
 
 
             <div class="form-group">
-                <strong>Veterinaria:</strong>
+                <strong>Veterinaria que frecuenta:</strong>
                 <select name="id_vet">
                     @foreach($vets as $category)
                     <option value="{{$category->id}}">{{$category->name}}></option>

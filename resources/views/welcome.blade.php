@@ -79,7 +79,7 @@
                 </div>
             @endif
 
-            <div class="content" style="border-style:solid; border-radius:50%; width: 650px ;height: 650px;">
+            <div class="content" style="border-style:dashed; border-radius:50%; width: 650px ;height: 650px;">
                 <div class="title"  style="margin-top: 180px">
                     HISTOVET APP
                 </div>

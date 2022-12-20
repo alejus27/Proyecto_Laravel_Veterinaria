@@ -25,7 +25,7 @@
 </div>
 @endif
 
-<form action="{{ route('veterinary.edit',$veterinary->id) }}" method="POST">
+<form action="{{ route('veterinary.update',$veterinary->id) }}" method="POST">
     @csrf
     @method('PUT')
 
@@ -42,7 +42,7 @@
 
             <div class="form-group">
                 <strong>Dirección:</strong>
-                <input type="text" name="address" value="{{ $veterinary->adress }}" class="form-control" placeholder="Dirección">
+                <input type="text" name="address" value="{{ $veterinary->address }}" class="form-control" placeholder="Dirección">
             </div>
            
 

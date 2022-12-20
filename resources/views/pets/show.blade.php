@@ -15,7 +15,7 @@
 
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <img src="/image/{{ $pet->image }}" width="200px">
+            <img src="/image/{{ $pet->image }}" style="border-radius: 20%; border-style:inset" width="200px">
         </div>
     </div>
 

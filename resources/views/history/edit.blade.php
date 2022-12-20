@@ -25,32 +25,75 @@
 </div>
 @endif
 
-<form action="{{ route('pets.edit',$pet->id) }}" method="POST">
+<form action="{{ route('history.update',$history->id) }}" method="POST">
     @csrf
     @method('PUT')
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Name:</strong>
-                <input type="text" name="name" value="{{ $pet->name }}" class="form-control" placeholder="Name">
+            
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Motivo consulta: </strong>
+                    <input type="text" name="reason_consultation" value="{{ $history->reason_consultation }}" class="form-control" placeholder="">
+                  
+                </div>
+
+
             </div>
-            <div class="form-group">
-                <strong>Sexo:</strong>
-                <input type="text" name="sex" value="{{ $pet->sex }}" class="form-control" placeholder="Sexo">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Vacunación: </strong>
+                    <input type="text" name="vaccination" value="{{ $history->vaccination }}" class="form-control" placeholder="">
+
+                 
+                </div>
             </div>
-            <div class="form-group">
-                <strong>Edad:</strong>
-                <input type="text" name="age"  value="{{ $pet->age }}"class="form-control" placeholder="Edad">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Esterilizado: </strong>
+                    <input type="text" name="sterilized" value="{{ $history->sterilized }}" class="form-control" placeholder="">
+
+                </div>
             </div>
-            <div class="form-group">
-                <strong>Especie:</strong>
-                <input type="text" name="specie"  value="{{ $pet->specie }}"class="form-control" placeholder="Especie">
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Peso: </strong>
+                    <input type="text" name="weight" value="{{ $history->weight }}" class="form-control" placeholder="">
+
+                </div>
             </div>
-            <div class="form-group">
-                <strong>Raza:</strong>
-                <input type="text" name="breed"  value="{{ $pet->breed }}"class="form-control" placeholder="Raza">
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Pulso: </strong>
+                    <input type="text" name="pulse" value="{{ $history->pulse}}" class="form-control" placeholder="">
+
+             
+                </div>
             </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Desparasitación: </strong>
+                    <input type="text" name="deworming" value="{{ $history->deworming }}" class="form-control" placeholder="">
+
+              
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Antecedentes: </strong>
+                    <input type="text" name="antecedents" value="{{ $history->antecedents }}" class="form-control" placeholder="">
+
+              
+                </div>
+            </div>
+
+
 
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

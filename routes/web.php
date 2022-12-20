@@ -11,6 +11,7 @@
 |
 */
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\MedicineController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -30,6 +31,7 @@ Route::resource('/pets', 'PetController')->middleware('can:manage-pets');
 Route::resource('/history', 'ClinicalHistoryController');
 
 Route::resource('/medicines', 'MedicineController');
+
 
 Route::resource('/veterinary', 'VeterinaryController');
 

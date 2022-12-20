@@ -25,11 +25,18 @@
 </div>
 @endif
 
-<form action="{{ route('pets.edit',$pet->id) }}" method="POST">
+<form action="{{ route('pets.update',$pet->id) }}" method="POST">
     @csrf
     @method('PUT')
 
     <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <strong>Imagen:</strong>
+            <div class="form-group">
+                <img src="/image/{{ $pet->image }}" style="border-radius: 20%;" width="150px">
+                <input type="file" name="image" class="form-control" placeholder="image">
+            </div>
+        </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>

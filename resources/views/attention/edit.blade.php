@@ -8,7 +8,7 @@
     <div class="col-lg-12 margin-tb">
 
         <div class="pull-left">
-            <h2>Editar medicamento</h2>
+            <h2>Editar atención médica</h2>
         </div>
 
     </div>
@@ -25,19 +25,19 @@
 </div>
 @endif
 
-<form action="{{ route('medicines.edit',$medicine->id) }}" method="POST">
+<form action="{{ route('attention.update', $attention->id) }}" method="POST">
     @csrf
     @method('PUT')
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nombre:</strong>
-                <input type="text" name="name" value="{{ $medicine->name }}" class="form-control" placeholder="Name">
+                <strong>Fecha:</strong>
+                <input type="date" name="date_attention" value="{{ $attention->date_attention }}" class="form-control" placeholder="Fecha">
             </div>
             <div class="form-group">
-                <strong>Precio:</strong>
-                <input type="text" name="sex" value="{{ $medicine->price }}" class="form-control" placeholder="Precio">
+                <strong>Descripción:</strong>
+                <input type="text" name="description" value="{{ $attention->description }}" class="form-control" placeholder="Descripción">
             </div>
            
 

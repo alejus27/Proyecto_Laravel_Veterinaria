@@ -27,7 +27,7 @@
     @foreach ($pets as $pet)
     <tr>
         <td>{{ ++$i }}</td>
-        <td><img src="/image/{{ $pet->image }}" width="100px"></td>
+        <td><img src="/image/{{ $pet->image }}" style="border-radius: 20%; " width="100px"></td>
         <td>{{ $pet->name }}</td>
         <td>{{ $pet->specie }}</td>
         <td>
