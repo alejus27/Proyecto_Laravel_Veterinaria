@@ -94,7 +94,7 @@
                 </ul>
             </div>
             <br><a href="/shop" class="btn btn-dark">Continue en la tienda</a>
-            <a href="/checkout" class="btn btn-success">Proceder al checkout</a>
+            <a href="/shop" class="btn btn-success">Proceder al checkout</a>
         </div>
         @endif
     </div>

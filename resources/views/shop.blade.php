@@ -16,13 +16,13 @@
                 </div>
             </div>
             <hr>
-            <div class="row">
+            <div class="row" >
                 @foreach($medicines as $pro)
-                <div class="col-lg-3">
+                <div class="col-lg-3" >
 
 
-                    <div class="card" style="margin-bottom: 20px; height: auto;">
-                        <img src="/image/{{ $pro->image }}" class="card-img-top mx-auto" style="height: 150px; width: 150px;display: block;" alt="{{ $pro->image }}">
+                    <div class="card card text-white bg-secondary" style="margin-bottom: 20px; height: auto;">
+                        <img src="/image/{{ $pro->image }}" class="card-img-top mx-auto" style="border-radius: 20%;margin-top: 20px;height: 150px; width: 150px;display: block;" alt="{{ $pro->image }}">
 
 
                         <div class="card-body">
@@ -40,12 +40,12 @@
                                 <input type="hidden" value="1" id="quantity" name="quantity">
 
                                 <input type="hidden" value="1" id="quantity" name="quantity">
-                                <div class="card-footer" style="background-color: white;">
+                                <div class="card-footer bg-secondary border-white" style="background-color: white;">
                                     <div class="row">
                                         <button class="btn btn-success btn-sm" class="tooltip-test" title="add to cart">
                                             <i class="fa fa-shopping-cart"></i> Agregar al carrito
                                         </button>
-                                        <a class="btn btn-secondary" href="{{ route('medicine_detail.show', $pro->id) }}">Info</a>
+                                        <a class="btn btn-secondary" href="{{ route('medicine_detail.show', $pro->id) }}"><i class="bi bi-info-circle"></i></a>
 
                                     </div>
                                 </div>

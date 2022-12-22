@@ -5,7 +5,7 @@
     <div class="col-lg-12 margin-tb">
        
         <div class="pull-right">
-            <a class="btn btn-success" href="{{ route('veterinary.create') }}"> Registrar nueva veterinaria</a>
+            <a class="btn btn-success" href="{{ route('veterinary.create') }}"> Registrar nueva veterinaria<i class="bi bi-plus-circle"></i></a>
         </div>
         
         <div class="text-center">
@@ -16,8 +16,8 @@
 </div>
 
 <div class="card-body">
-<table class="table">
-    <tr>
+<table class="table table-hover">
+    <tr class="thead-dark">
         <th>#</th>
         <th>Nombre</th>
         <th>Telefono</th>
@@ -34,13 +34,13 @@
 
             <form action="{{ route('veterinary.destroy',$pet->id) }}" method="POST">
             
-                <a class="btn btn-dark" href="{{ route('veterinary.edit',$pet->id) }}">Editar</a>
+                <a class="btn btn-primary" href="{{ route('veterinary.edit',$pet->id) }}"><i class="bi bi-pencil-square"></i></a>
 
 
                 @csrf
                 @method('DELETE')
 
-                <button type="submit" class="btn btn-danger">Eliminar</button>
+                <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                
             </form>
 

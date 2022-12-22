@@ -107,11 +107,8 @@ class PetController extends Controller
      */
     public function update(Request $request, Pet $pet)
     {
-        
-
         $input = $request->all();
         
-
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();

@@ -96,6 +96,13 @@
                                 </a>
                                 @endcan
 
+                                @can('edit-pets')
+                                <a class="dropdown-item" href="{{ url('/map')}}">
+                                    Mapa
+                                </a>
+                                @endcan
+
+
 
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
